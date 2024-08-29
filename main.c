@@ -54,14 +54,6 @@ static void run_async(register struct Task* restrict task) {
     while (!task->isCompleted);
 }
 
-static void run_sync(register struct Task* restrict task) {
-    if (task->isCompleted) {
-        return;
-    }
-
-    task->result = task->function();
-}
-
 static void* test() {
     int* x = malloc(sizeof(int));
     *x = 7;
